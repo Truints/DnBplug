@@ -73,6 +73,12 @@ addGlobalStyle('#button-lobby {background-image: max-height:0px;max-width:0px;}'
 //
 addGlobalStyle('#button-vote-positive {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositive.png")!important ;}');
 
+element {
+    cursor: default;
+    background-image: url("/images/en/ButtonVotePositiveSelected.png");
+    left: 741px;
+}
+
 //
 addGlobalStyle('#button-vote-negative {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVoteNegative.png")!important ;}');
 

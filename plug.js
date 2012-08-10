@@ -585,4 +585,4 @@ initUIListeners();
 //	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(8000).animate({"opacity": "0"}, {duration: "slow"});
 //});
 
-Javascript: RoomUser.audience.roomElements = []; RoomUser.redraw();
+RoomUser.audience.roomElements = []; RoomUser.redraw();

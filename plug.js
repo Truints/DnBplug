@@ -270,7 +270,8 @@ function displayUI()
 		+	'<p id="plugbot-btn-woot" style="color:#ED1C24">auto-woot</p>'
 		+ 	'<p id="plugbot-btn-queue" style="color:#ED1C24">auto-queue</p>'
 		+ 	'<p id="plugbot-btn-hidevideo" style="color:#ED1C24">hide video</p>'
-		+ 	'<p id="plugbot-btn-minecraft" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.mediafire.com/?gcv0eu8u68wtetu" target="_blank">minecraft: 108.246.72.228</a></p>'
+		+ 	'<p id="plugbot-btn-minecraft" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.mediafire.com/?gcv0eu8u68wtetu" target="_blank">minecraft</a></p>'
+		+ 	'<p id="plugbot-btn-minecraft" style="color:#ED1C24">108.246.72.228</p>'
 //		+ 	'<p id="plugbot-btn-userlist" style="color:#ED1C24">userlist</p>'
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
 	);

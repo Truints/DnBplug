@@ -587,4 +587,4 @@ initUIListeners();
 
  setTimeout(function(){	
  RoomUser.audience.roomElements = []; RoomUser.redraw();
- },500);
+ },1000);

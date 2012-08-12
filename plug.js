@@ -1,44 +1,4 @@
-/*
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * TERMS OF REPRODUCTION USE
- *
- * 1. Provide a link back to the original repository (this repository), as
- * 		in, https://github.com/ConnerGDavis/Plugbot, that is well-visible
- * 		wherever the source is being reproduced.  For example, should you 
- * 		display it on a website, you should provide a link above/below that
- *		which the users use, titled something such as "ORIGINAL AUTHOR".  
- *
- * 2. Retain these three comments:  the GNU GPL license statement, this comment,
- * 		and that below it, that details the author and purpose.
- */
- 
-/**
- * NOTE:  This is all procedural as hell because prototypes and any 
- * 			OOP techniques in Javascript are stupid and confusing.
- * 
- * @author 	Conner Davis ([VIP] ?Log��) 
- * 			Harrison Schneidman ([VIDJ] EX?)
- */
-
-//setInterval (function() {
-//RoomUser.audience.roomElements = []; RoomUser.redraw();
-//},1000);
-
-
+//Room
 function addGlobalStyle(css){
 	var head, style;
 	head = document.getElementsByTagName('head')[0];
@@ -159,11 +119,74 @@ for(var i=0,l=texts.snapshotLength; (this_text=texts.snapshotItem(i)); i++) {
 
 //plugbot
 
-var autowoot = false;
-var autoqueue = false;
-var hideVideo = false;
+/*
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-// API listeners
+/*
+ * TERMS OF REPRODUCTION USE
+ *
+ * 1. Provide a link back to the original repository (this repository), as
+ * 		in, https://github.com/ConnerGDavis/Plugbot, that is well-visible
+ * 		wherever the source is being reproduced.  For example, should you 
+ * 		display it on a website, you should provide a link above/below that
+ *		which the users use, titled something such as "ORIGINAL AUTHOR".  
+ *
+ * 2. Retain these three comments:  the GNU GPL license statement, this comment,
+ * 		and that below it, that details the author and purpose.
+ */
+ 
+/**
+ * NOTE:  This is all procedural as hell because prototypes and any 
+ * 			OOP techniques in Javascript are stupid and confusing.
+ * 
+ * @author 	Conner Davis ([VIP] ?Logïç®) 
+ * 			Harrison Schneidman ([VIDJ] EX?)
+ */
+
+/**
+ * Whether the user has currently enabled auto-woot. 
+ */
+var autowoot = false;
+/**
+ * Whether the user has currently enabled auto-queueing. 
+ */
+var autoqueue = false;
+/**
+ * Whether or not the user has enabled hiding this video. 
+ */
+var hideVideo = false;
+/**
+ * Whether or not the user has enabled the userlist. 
+ */
+var userList = false;
+
+/**
+ * Whenever a user chooses to apply custom username FX to a
+ * user, their username and chosen colour and saved here. 
+ */
+var customUsernames = new Array();
+
+// TODO:  DJ battle-related.
+var points = 0;
+var highScore = 0;
+
+/**
+ * Initialise all of the Plug.dj API listeners which we use
+ * to asynchronously intercept specific events and the data
+ * attached with them. 
+ */
 function initAPIListeners() 
 {
 	/**
@@ -199,6 +222,32 @@ function initAPIListeners()
 	API.addEventListener(API.CHAT, checkCustomUsernames);
 }
 
+
+/**
+ * Periodically check the chat history to see if any of the messages
+ * match that of the user's chosen custom username FX.  If so, then we
+ * need to stylise every instance of those. 
+ */
+function checkCustomUsernames() 
+{
+	$('span[class*="chat-from"]').each(function() {
+		for (var custom in customUsernames) 
+		{
+			var check = customUsernames[custom].split(":");
+			if (check[0] == $(this).text()) 
+			{
+				$(this).css({ color: "#" + check[1]});
+				break;
+			}
+		}
+	});
+}
+
+
+/**
+ * Renders all of the Plug.bot "UI" that is visible beneath the video
+ * player. 
+ */
 function displayUI()
 {
 	$("#plugbot-warning").remove();
@@ -227,6 +276,49 @@ function displayUI()
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
 	);
 } //3FFF00
+
+
+/**
+ * Prompt the user to provide a new custom username FX. 
+ */
+function promptCustomUsername() {
+	var check = prompt("Format:  username:color\n(For color codes, Google 'Hexadecimal color chart')");
+	
+	customUsernames.push(check);
+	
+	$('#space').after('<span id="' + check + '" onclick="removeCustomUsername(\'' + check + '\');$(this).next().remove();$(this).remove();" style="cursor:pointer;color:#' + check.split(":")[1] + '">- ' + check.split(":")[0] 
+		+ '</span><br />');
+		
+	checkCustomUsernames();
+}
+
+
+/**
+ * Remove an existing entry in the custom username FX. 
+ */
+function removeCustomUsername(data) {
+	delete customUsernames[data];
+}
+
+
+/**
+ * For every button on the Plug.bot UI, we have listeners backing them
+ * that are built to intercept the user's clicking each button.  Based 
+ * on the button that they clicked, we can execute some logic that will
+ * in some way affect their experience. 
+ */
+function initUIListeners()
+{	
+//	$("#plugbot-btn-userlist").on("click", function() {
+//		userList = !userList;
+//		$(this).css("color", userList ? "#3FFF00" : "#ED1C24");
+//		$("#plugbot-userlist").css("visibility", userList ? ("visible") : ("hidden"));
+//		if (!userList) {
+//			$("#plugbot-userlist").empty();
+//		} else {
+//			populateUserlist();
+//		}
+//	});
 
 	$("#plugbot-btn-woot").on("click", function() {
 		autowoot = !autowoot;
@@ -465,12 +557,12 @@ $('#plugbot-js').remove();
  */
 $('body').prepend('<style type="text/css" id="plugbot-css">' 
 	+ '#plugbot-ui { position: absolute; margin-left: 349px; }'
-	+ '#plugbot-ui p { background-color: #0b0b0b; height: 30px; padding-top: 8px; padding-left: 12px; cursor: pointer; font-variant: small-caps; width: 98px; font-size: 13px; margin: 0; }'
-	+ '#plugbot-ui h2 { background-color: #0b0b0b; height: 110px; width: 156px; margin: 0; color: #fff; font-size: 13px; font-variant: small-caps; padding: 8px 0 0 12px; border-top: 1px dotted #292929; }'
+	+ '#plugbot-ui p { background-color: #0b0b0b; height: 32px; padding-top: 8px; padding-left: 12px; cursor: pointer; font-variant: small-caps; width: 84px; font-size: 15px; margin: 0; }'
+	+ '#plugbot-ui h2 { background-color: #0b0b0b; height: 112px; width: 156px; margin: 0; color: #fff; font-size: 13px; font-variant: small-caps; padding: 8px 0 0 12px; border-top: 1px dotted #292929; }'
 //    + '#plugbot-userlist { border: 6px solid rgba(10, 10, 10, 0.8); border-left: 0 !important; background-color: #000000; padding: 8px 0px 20px 0px; width: 12%; }'
 //    + '#plugbot-userlist p { margin: 0; padding-top: 2px; text-indent: 24px; font-size: 10px; }'
 //    + '#plugbot-userlist p:first-child { padding-top: 0px !important; }'
-        + '#plugbot-queuespot { color: #42A5DC; text-align: left; font-size: 1.5em; margin-left: 8px }');
+    + '#plugbot-queuespot { color: #42A5DC; text-align: left; font-size: 1.5em; margin-left: 8px }');
 
 /*
  * Hit the woot button, since auto-woot is enabled by default.

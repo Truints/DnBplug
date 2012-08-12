@@ -206,10 +206,11 @@ function initAPIListeners()
 	/**
 	 * Whenever a user joins, this listener is called. 
 	 */
-	API.addEventListener(API.USER_JOIN, function(user) {
-		if (userList)
-			populateUserlist();
-	});
+        API.addEventListener(API.USER_JOIN, function(user) {
+                         populateUserlist();
+                if (isBoris())
+        API.sendChat("@" + user.username + ", hello and welcome to our room, enjoy the beats and read the info tab top left if you plan to dj ");
+        });
 
 	/**
 	 * Called upon a user exiting the room. 

@@ -594,7 +594,7 @@ function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
 if (isBoris())
 {
                window.setInterval(function() {
-                               API.sendChat("");
+                               API.sendChat("test");
                }, (1000 * 30 * 60));
 }
 

@@ -209,7 +209,7 @@ function initAPIListeners()
         API.addEventListener(API.USER_JOIN, function(user) {
                          populateUserlist();
                 if (isBoris())
-        API.sendChat("@" + user.username + ", hello and welcome to our room, enjoy the beats and read the info tab top left if you plan to dj ");
+        API.sendChat("@" + user.username + ", Hi and Welcome to Liquid Sunday in the Drum & Bass Room, today we play Smooth and Liquid beats, so if you plan to DJ, please set up your Playlist accordingly, thank you and Enjoy! ");
         });
 
 	/**

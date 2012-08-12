@@ -588,7 +588,7 @@ initUIListeners();
 //});
 
 //autochat
-function isBoris() { return API.getSelf().username == "[v2.0] Punkred"; }
+function isBoris() { return API.getSelf().username == "[v2.0] Punkred [B]"; }
 
 if (isBoris())
 {

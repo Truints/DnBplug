@@ -593,7 +593,7 @@ function isBoris() { return API.getSelf().username == "[v2.0] Punkred"; }
 if (isBoris())
 {
                window.setInterval(function() {
-                               API.sendChat("test");
+                               API.sendChat("");
                }, (1000 * 30 * 60));
 }
 

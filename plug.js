@@ -588,6 +588,17 @@ initUIListeners();
 //	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(8000).animate({"opacity": "0"}, {duration: "slow"});
 //});
 
+//autochat
+function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
+
+if (isBoris())
+{
+               window.setInterval(function() {
+                               API.sendChat("");
+               }, (1000 * 30 * 60));
+}
+
+//elements removal
  setTimeout(function(){	
  RoomUser.audience.roomElements = []; RoomUser.redraw();
  },2000);

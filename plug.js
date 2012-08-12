@@ -180,10 +180,6 @@ function initAPIListeners()
                })
 }
 
-/**
- * Renders all of the Plug.bot "UI" that is visible beneath the video
- * player. 
- */
 function displayUI()
 {
 	$("#plugbot-warning").remove();
@@ -212,25 +208,6 @@ function displayUI()
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
 	);
 } //3FFF00
-
-/**
- * For every button on the Plug.bot UI, we have listeners backing them
- * that are built to intercept the user's clicking each button.  Based 
- * on the button that they clicked, we can execute some logic that will
- * in some way affect their experience. 
- */
-function initUIListeners()
-{	
-//	$("#plugbot-btn-userlist").on("click", function() {
-//		userList = !userList;
-//		$(this).css("color", userList ? "#3FFF00" : "#ED1C24");
-//		$("#plugbot-userlist").css("visibility", userList ? ("visible") : ("hidden"));
-//		if (!userList) {
-//			$("#plugbot-userlist").empty();
-//		} else {
-//			populateUserlist();
-//		}
-//	});
 
 	$("#plugbot-btn-woot").on("click", function() {
 		autowoot = !autowoot;

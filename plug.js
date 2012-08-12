@@ -164,20 +164,39 @@ var autoqueue = false;
 var hideVideo = false;
 
 // API listeners
-function initAPIListeners()
+function initAPIListeners() 
 {
-               API.addEventListener(API.DJ_ADVANCE, djAdvanced);
-               API.addEventListener(API.VOTE_UPDATE, function(obj) {
-                               populateUserlist();
-               });
-               API.addEventListener(API.USER_JOIN, function(user) {
-                               populateUserlist();
-                               if (isBoris())
-                                               API.sendChat("@" + user.username + ", hello and welcome to our room, enjoy the beats and read the info tab top left if you plan to dj ");
-               });
-               API.addEventListener(API.USER_LEAVE, function(user) {
-                               populateUserlist();
-               })
+	/**
+	 * This listens in for whenever a new DJ starts playing. 
+	 */
+	API.addEventListener(API.DJ_ADVANCE, djAdvanced);
+
+	/**
+	 * This listens for whenever a user in the room either WOOT!s
+	 * or Mehs the current song. 
+	 */
+	API.addEventListener(API.VOTE_UPDATE, function(obj) {
+		if (userList)
+			populateUserlist();
+	});
+
+	/**
+	 * Whenever a user joins, this listener is called. 
+	 */
+	API.addEventListener(API.USER_JOIN, function(user) {
+		if (userList)
+			populateUserlist();
+	});
+
+	/**
+	 * Called upon a user exiting the room. 
+	 */
+	API.addEventListener(API.USER_LEAVE, function(user) {
+		if (userList)
+			populateUserlist();
+	});
+	
+	API.addEventListener(API.CHAT, checkCustomUsernames);
 }
 
 function displayUI()

@@ -157,94 +157,28 @@ for(var i=0,l=texts.snapshotLength; (this_text=texts.snapshotItem(i)); i++) {
 	}
 }
 
-/**
- * Whether the user has currently enabled auto-woot. 
- */
+//plugbot
+
 var autowoot = false;
-/**
- * Whether the user has currently enabled auto-queueing. 
- */
 var autoqueue = false;
-/**
- * Whether or not the user has enabled hiding this video. 
- */
 var hideVideo = false;
-/**
- * Whether or not the user has enabled the userlist. 
- */
-var userList = false;
 
-/**
- * Whenever a user chooses to apply custom username FX to a
- * user, their username and chosen colour and saved here. 
- */
-var customUsernames = new Array();
-
-// TODO:  DJ battle-related.
-var points = 0;
-var highScore = 0;
-
-/**
- * Initialise all of the Plug.dj API listeners which we use
- * to asynchronously intercept specific events and the data
- * attached with them. 
- */
-function initAPIListeners() 
+// API listeners
+function initAPIListeners()
 {
-	/**
-	 * This listens in for whenever a new DJ starts playing. 
-	 */
-	API.addEventListener(API.DJ_ADVANCE, djAdvanced);
-
-	/**
-	 * This listens for whenever a user in the room either WOOT!s
-	 * or Mehs the current song. 
-	 */
-	API.addEventListener(API.VOTE_UPDATE, function(obj) {
-		if (userList)
-			populateUserlist();
-	});
-
-	/**
-	 * Whenever a user joins, this listener is called. 
-	 */
-	API.addEventListener(API.USER_JOIN, function(user) {
-		if (userList)
-			populateUserlist();
-	});
-
-	/**
-	 * Called upon a user exiting the room. 
-	 */
-	API.addEventListener(API.USER_LEAVE, function(user) {
-		if (userList)
-			populateUserlist();
-	});
-	
-	API.addEventListener(API.CHAT, checkCustomUsernames);
+               API.addEventListener(API.DJ_ADVANCE, djAdvanced);
+               API.addEventListener(API.VOTE_UPDATE, function(obj) {
+                               populateUserlist();
+               });
+               API.addEventListener(API.USER_JOIN, function(user) {
+                               populateUserlist();
+                               if (isBoris())
+                                               API.sendChat("@" + user.username + ", hello and welcome to our room, enjoy the beats and read the info tab top left if you plan to dj ");
+               });
+               API.addEventListener(API.USER_LEAVE, function(user) {
+                               populateUserlist();
+               })
 }
-
-
-/**
- * Periodically check the chat history to see if any of the messages
- * match that of the user's chosen custom username FX.  If so, then we
- * need to stylise every instance of those. 
- */
-function checkCustomUsernames() 
-{
-	$('span[class*="chat-from"]').each(function() {
-		for (var custom in customUsernames) 
-		{
-			var check = customUsernames[custom].split(":");
-			if (check[0] == $(this).text()) 
-			{
-				$(this).css({ color: "#" + check[1]});
-				break;
-			}
-		}
-	});
-}
-
 
 /**
  * Renders all of the Plug.bot "UI" that is visible beneath the video
@@ -278,30 +212,6 @@ function displayUI()
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
 	);
 } //3FFF00
-
-
-/**
- * Prompt the user to provide a new custom username FX. 
- */
-function promptCustomUsername() {
-	var check = prompt("Format:  username:color\n(For color codes, Google 'Hexadecimal color chart')");
-	
-	customUsernames.push(check);
-	
-	$('#space').after('<span id="' + check + '" onclick="removeCustomUsername(\'' + check + '\');$(this).next().remove();$(this).remove();" style="cursor:pointer;color:#' + check.split(":")[1] + '">- ' + check.split(":")[0] 
-		+ '</span><br />');
-		
-	checkCustomUsernames();
-}
-
-
-/**
- * Remove an existing entry in the custom username FX. 
- */
-function removeCustomUsername(data) {
-	delete customUsernames[data];
-}
-
 
 /**
  * For every button on the Plug.bot UI, we have listeners backing them

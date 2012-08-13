@@ -215,7 +215,7 @@ function initAPIListeners()
         //});
 
 API.addEventListener(API.MOD_SKIP, function(user){
-API.sendChat("Sorry, your song has violated one of the room's rules.");
+API.sendChat("Sorry, your song either sucks or isn't Drum & Bass.");
 });
 
 	/**

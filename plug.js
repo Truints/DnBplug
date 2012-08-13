@@ -214,6 +214,9 @@ function initAPIListeners()
         //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         //});
 
+API.addEventListener(API.MOD_SKIP, function(user){
+API.sendChat("Sorry, your song has violated one of the room's rules.");
+});
 
 	/**
 	 * Called upon a user exiting the room. 

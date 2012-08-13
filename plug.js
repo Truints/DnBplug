@@ -208,9 +208,11 @@ function initAPIListeners()
 	 */
         API.addEventListener(API.USER_JOIN, function(user) {
                          populateUserlist();
-                if (isBoris())
-        API.sendChat("@" + user.username + ", Hi and Welcome to Liquid Sunday in the Drum & Bass Room, today we play Smooth and Liquid beats, so if you plan to DJ, please set up your Playlist accordingly, thank you and Enjoy! ");
+        API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         });
+//                if (isBoris())
+//        API.sendChat("@" + user.username + ", Hi and Welcome to Liquid Sunday in the Drum & Bass Room, today we play Smooth and Liquid beats, so if you plan to DJ, please set up your Playlist accordingly, thank you and Enjoy! ");
+//        });
 
 	/**
 	 * Called upon a user exiting the room. 
@@ -218,6 +220,12 @@ function initAPIListeners()
 	API.addEventListener(API.USER_LEAVE, function(user) {
 		if (userList)
 			populateUserlist();
+	API.sendChat(user.username + " left the room")
+	});
+
+	API.addEventListener(API.MOD_SKIP, skip);
+		function skip(user) {
+	API.sendChat("Sorry, your song is either really bad or isn't Drum & Bass.")
 	});
 	
 	API.addEventListener(API.CHAT, checkCustomUsernames);

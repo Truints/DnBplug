@@ -220,16 +220,13 @@ function initAPIListeners()
 	API.addEventListener(API.USER_LEAVE, function(user) {
 		if (userList)
 			populateUserlist();
-	API.sendChat(user.username + " left the room")
+	API.sendChat(user.username + " left the room");
 	});
 
 	API.addEventListener(API.MOD_SKIP, skip);
 		function skip(user) {
-	API.sendChat("Sorry, your song is either really bad or isn't Drum & Bass.")
-	});
-	
-	API.addEventListener(API.CHAT, checkCustomUsernames);
-}
+	API.sendChat("Sorry, your song is either really bad or isn't Drum & Bass.");
+	}
 
 
 /**

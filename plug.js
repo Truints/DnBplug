@@ -588,7 +588,7 @@ initUIListeners();
 //});
 
 //autochat
-function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
+function isBoris() { return API.getSelf().username == "n/a dont even bother"; }
 
 if (isBoris())
 {

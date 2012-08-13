@@ -218,8 +218,8 @@ function initAPIListeners()
 	 * Called upon a user exiting the room. 
 	 */
 	API.addEventListener(API.USER_LEAVE, function(user) {
-		if (userList)
 			populateUserlist();
+			API.sendChat(user.username + " left the room");
 	});
 	
 	API.addEventListener(API.CHAT, checkCustomUsernames);

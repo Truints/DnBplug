@@ -208,13 +208,14 @@ function initAPIListeners()
 	 */
         API.addEventListener(API.USER_JOIN, function(user) {
                          populateUserlist();
-       //         if (isBoris())
+       //                if (isBoris())
         //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         });
         //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         //});
 
 API.addEventListener(API.MOD_SKIP, function(user){
+	if (isBoris())
 API.sendChat("Sorry, your song either sucks or isn't Drum & Bass.");
 });
 
@@ -223,6 +224,7 @@ API.sendChat("Sorry, your song either sucks or isn't Drum & Bass.");
 	 */
 	API.addEventListener(API.USER_LEAVE, function(user) {
 			populateUserlist();
+	//		if (isBoris())
 //			API.sendChat(user.username + " left the room");
 	});
 	

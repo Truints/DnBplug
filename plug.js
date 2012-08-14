@@ -208,8 +208,8 @@ function initAPIListeners()
 	 */
         API.addEventListener(API.USER_JOIN, function(user) {
                          populateUserlist();
-                if (isBoris())
-        API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
+       //         if (isBoris())
+        //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         });
         //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         //});

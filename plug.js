@@ -216,7 +216,7 @@ function initAPIListeners()
 
 API.addEventListener(API.MOD_SKIP, function(user){
 	if (isBoris())
-API.sendChat("Sorry, your song either sucks or isn't Drum & Bass.");
+API.sendChat("Sorry, your song either violates the room's rules or is dead air.");
 });
 
 	/**

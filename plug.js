@@ -591,9 +591,9 @@ initUIListeners();
  * the chatbox while using Plug.bot for the most space for custom
  * usernames.
  */
-//$(function() {
-//	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(8000).animate({"opacity": "0"}, {duration: "slow"});
-//});
+$(function() {
+	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(8000).animate({"opacity": "0"}, {duration: "slow"});
+});
 
 //autochat
 function isBoris() { return API.getSelf().username == "[v2.0] Punkred"; }

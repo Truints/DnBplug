@@ -592,7 +592,7 @@ initUIListeners();
  * usernames.
  */
 $(function() {
-	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(8000).animate({"opacity": "0"}, {duration: "slow"});
+	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(16000).animate({"opacity": "0"}, {duration: "slow"});
 });
 
 //autochat

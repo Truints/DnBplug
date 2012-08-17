@@ -261,8 +261,8 @@ function displayUI()
 {
 	$("#plugbot-warning").remove();
 	$('#playback').append('<div id="plugbot-warning" style="background-color:#0a0a0a;opacity:0.91;width:100%;padding:12px 0 12px 0;color:#fff;text-align:center;opacity:0;font-variant:small-caps;font-size:15px">'
-		+ 'We have a minecraft server believe it or not. You can access either <br />download it from the "Minecraft" button on the right ' 
-		+ 'custom usernames as possible.  <br />however, it is not necessary.</div>');
+		+ 'We have a minecraft server believe it or not. You can access either by <br />downloading it from the "Minecraft" button on the right ' 
+		+ 'or   <br />however, if you already have Minecraft you can use the server ip also located to the right.</div>');
 	
 	/*
 	 * Be sure to remove any old instance of the UI, in case the user

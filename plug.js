@@ -28,7 +28,7 @@ function addGlobalStyle(css){
 //addGlobalStyle('#frame-background {background-image: url("") ;}');
 
 //
-addGlobalStyle('#button-lobby {background-image: max-height:0px;max-width:0px;}');
+//addGlobalStyle('#button-lobby {background-image: max-height:0px;max-width:0px;}');
 
 //
 addGlobalStyle('#button-vote-positive {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositive.png")!important ;}');
@@ -275,12 +275,11 @@ function displayUI()
 	 */
 	$('#chat').prepend('<div id="plugbot-ui"></div>');
 	$('#plugbot-ui').append(
-			'<p id="plugbot-btn-lobby" style="color:#ED1C24"><b><a style="color: #FF6600" href="http://www.plug.dj/">lobby</a></b></p>'
-		+	'<p id="plugbot-btn-woot" style="color:#ED1C24">auto-woot</p>'
+			'<p id="plugbot-btn-woot" style="color:#ED1C24">auto-woot</p>'
 		+ 	'<p id="plugbot-btn-queue" style="color:#ED1C24">auto-queue</p>'
 		+ 	'<p id="plugbot-btn-hidevideo" style="color:#ED1C24">hide video</p>'
 		+ 	'<p id="plugbot-btn-minecraft" style="color:#ED1C24"><a style="color: #3FFF00" href="https://github.com/downloads/Punkred/DnBplug/Minecraft%20v1.3.1.zip" target="_blank">minecraft</a></p>'
-		+ 	'<p id="plugbot-btn-minecraft" style="color:#3FFF00">108.246.72.228</p>'
+		+ 	'<p id="plugbot-btn-minecraft" style="color:#ED1C24">108.246.72.228</p>'
 //		+ 	'<p id="plugbot-btn-userlist" style="color:#ED1C24">userlist</p>'
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
 	);

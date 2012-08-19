@@ -208,8 +208,8 @@ function initAPIListeners()
 	 */
         API.addEventListener(API.USER_JOIN, function(user) {
                          populateUserlist();
-       //                if (isBoris())
-        //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
+                         if (isBoris())
+        API.sendChat("@" + user.username + ", Hi and Welcome to Liquid Sunday in the Drum & Bass Room, today we play Smooth and Liquid beats, so if you plan to DJ, please set up your Playlist accordingly, thank you and Enjoy! ");
         });
         //API.sendChat("@" + user.username + ", Welcome to the Drum & Bass Room. Enjoy your stay ");
         //});
@@ -595,7 +595,7 @@ $(function() {
 });
 
 //autochat
-function isBoris() { return API.getSelf().username == "[v2.0] Punkred"; }
+function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
 
 if (isBoris())
 {

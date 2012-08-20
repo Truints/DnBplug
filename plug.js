@@ -281,7 +281,7 @@ function displayUI()
 //		+ 	'<p id="plugbot-btn-userlist" style="color:#ED1C24">userlist</p>'
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
 		+ 	'<p id="plugbot-btn-youtube" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.youtube.com/watch?v=QNLyQZEW4Ok&feature=plcp" target="_blank">my youtube</a></p>'
-		+ 	'<h2 id="plugbot-btn-minecraft" style="color:#ED1C24">Minecraft Server </br> Server Status: Online </br> Server Ip: 108.246.72.228 </br> Minecraft Download <a style="color: #3FFF00" href="https://github.com/downloads/Punkred/DnBplug/Minecraft%20v1.3.1.zip" target="_blank">[X]</a></h2>'
+		+ 	'<h2 id="plugbot-btn-minecraft" style="color:#ED1C24">Minecraft Server </br> Server Status: Online </br> Server Ip: 108.246.72.228 </br> Minecraft Download: <a style="color: #3FFF00" href="https://github.com/downloads/Punkred/DnBplug/Minecraft%20v1.3.1.zip" target="_blank">[X]</a></h2>'
 );
 } //3FFF00 
 
@@ -565,7 +565,7 @@ $('#plugbot-js').remove();
  */
 $('body').prepend('<style type="text/css" id="plugbot-css">' 
 	+ '#plugbot-ui { position: absolute; margin-left: 349px; }'
-	+ '#plugbot-ui p { background-color: #0b0b0b; height: 32px; padding-top: 8px; padding-left: 12px; cursor: pointer; font-variant: small-caps; width: 106px; font-size: 15px; margin: 0; }'
+	+ '#plugbot-ui p { background-color: #0b0b0b; height: 32px; padding-top: 8px; padding-left: 12px; cursor: pointer; font-variant: small-caps; width: 85px; font-size: 15px; margin: 0; }'
 	+ '#plugbot-ui h2 { background-color: #0b0b0b; height: 112px; width: 164px; margin: 0; color: #fff; font-size: 13px; font-variant: small-caps; padding: 8px 0 0 12px; border-top: 1px dotted #292929; }'
 //    + '#plugbot-userlist { border: 6px solid rgba(10, 10, 10, 0.8); border-left: 0 !important; background-color: #000000; padding: 8px 0px 20px 0px; width: 12%; }'
 //    + '#plugbot-userlist p { margin: 0; padding-top: 2px; text-indent: 24px; font-size: 10px; }'

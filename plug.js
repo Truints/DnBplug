@@ -282,8 +282,9 @@ function displayUI()
 		+ 	'<p id="plugbot-btn-minecraft" style="color:#ED1C24">108.246.72.228</p>'
 //		+ 	'<p id="plugbot-btn-userlist" style="color:#ED1C24">userlist</p>'
 		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
-	);
-} //3FFF00
+		+ 	'<p id="plugbot-btn-youtube" style="color:#ED1C24"><a style="color: #3FFF00" href="http://www.youtube.com/watch?v=QNLyQZEW4Ok&feature=plcp" target="_blank">Punks Youtube</a></p>'
+);
+} //3FFF00 
 
 
 /**

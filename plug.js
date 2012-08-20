@@ -595,6 +595,8 @@ $(function() {
 	$("#plugbot-warning").animate({"opacity": "0.91"}, {duration: "medium"}).delay(16000).animate({"opacity": "0"}, {duration: "slow"});
 });
 
+/*
+
 //autochat
 function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
 
@@ -604,6 +606,7 @@ if (isBoris())
                                API.sendChat("");
                }, (1000 * 30 * 60));
 }
+*/
 
 //elements removal
  setTimeout(function(){	

@@ -31,10 +31,10 @@ function addGlobalStyle(css){
 //addGlobalStyle('#button-lobby {background-image: max-height:0px;max-width:0px;}');
 
 //
-addGlobalStyle('#button-vote-positive {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositive.png")!important ;}');
+addGlobalStyle('#button-vote-positive {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositive.png") ;}');
 
 //
-addGlobalStyle('#button-vote-positive-selected {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositiveSelected.png")!important ;}');
+addGlobalStyle('#button-vote-positive-selected {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositiveSelected.png") ;}');
 
 //
 addGlobalStyle('#button-vote-negative {background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVoteNegative.png")!important ;}');

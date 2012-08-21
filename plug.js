@@ -11,6 +11,8 @@ function addGlobalStyle(css){
 	head.appendChild(style);
 }
 
+<div style="cursor: default; background-image: url("http://cloud.github.com/downloads/Punkred/DnBplug/ButtonVotePositive.png"); left: 741px;" id="button-vote-positive"></div>
+
 
 //
 //addGlobalStyle('#audience-canvas {background-image: ;)');

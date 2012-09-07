@@ -153,6 +153,15 @@ for(var i=0,l=texts.snapshotLength; (this_text=texts.snapshotItem(i)); i++) {
  */
 
 /**
+ * Strings that trigger strobe mode
+ */
+var strobeOn = /starts jammin' out/;
+var strobeOff = /stops jammin' out/;
+/**
+ * Strobe status
+ */
+var strobeState = false;
+/**
  * Whether the user has currently enabled auto-woot. 
  */
 var autowoot = false;
@@ -168,6 +177,34 @@ var hideVideo = false;
  * Whether or not the user has enabled the userlist. 
  */
 var userList = false;
+
+/**
+ * Cheat mode strobe
+ */
+var strobeID = null;
+function strobe()
+{
+	$(RoomUser.audience.canvas).toggle();
+	$(RoomUser.audience.imageMap).toggle();
+}
+
+function strobeSwap()
+{
+	if(strobeID) clearTimeout(strobeID);
+	if (strobeState) strobeID = setInterval(strobe, 160);
+}
+
+function checkStrobeString()
+{
+	var oldState = strobeState;
+	$('div[class*="chat-emote"]>span[class*="chat-text"]').each(function() 
+	{
+		if ($(this).text().match(strobeOn)) strobeState = true;
+		if ($(this).text().match(strobeOff)) strobeState = false;
+	});
+	
+	if (oldState != strobeState) strobeSwap();
+}
 
 /**
  * Whenever a user chooses to apply custom username FX to a

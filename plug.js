@@ -265,6 +265,10 @@ function initAPIListeners()
 	API.addEventListener(API.CHAT, checkCustomUsernames);
 }
 
+function checkChat()
+{	
+	checkStrobeString();
+}
 
 /**
  * Periodically check the chat history to see if any of the messages

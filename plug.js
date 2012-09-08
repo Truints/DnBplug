@@ -154,8 +154,8 @@ var userList = false;
 /**
  * Strings that trigger strobe mode
  */
-var strobeOn = /starts jammin' out/;
-var strobeOff = /stops jammin' out/;
+var strobeOn = /starts strobe/;
+var strobeOff = /stops strobe/;
 /**
  * Strobe status
  */

@@ -55,6 +55,15 @@ var strobeOff = /stops jammin' out/;
  * Strobe status
  */
 var strobeState = false;
+/**
+ * Whenever a user chooses to apply custom username FX to a
+ * user, their username and chosen colour and saved here. 
+ */
+var customUsernames = new Array();
+
+// TODO:  DJ battle-related.
+var points = 0;
+var highScore = 0;
 
 /**
  * Initialise all of the Plug.dj API listeners which we use
@@ -168,14 +177,12 @@ function displayUI()
 	 */
 	$('#chat').prepend('<div id="plugbot-ui"></div>');
 	$('#plugbot-ui').append(
-			'<p id="plugbot-btn-woot" style="color:#F88017">auto-woot</p>'
-		+ 	'<p id="plugbot-btn-queue" style="color:#F88017">auto-queue</p>'
-		+ 	'<p id="plugbot-btn-hidevideo" style="color:#F88017">hide video</p>'
-		+ 	'<p id="plugbot-btn-facebook" style="color:#ED1C24"><a style="color: #F88017" href="http://www.facebook.com/groups/349429268437488/" target="_blank">facebook</a></p>'
-		+ 	'<p id="plugbot-btn-youtube" style="color:#ED1C24"><a style="color: #F88017" href="http://www.youtube.com/user/LoLPunkred/videos" target="_blank">punks youtube</a></p>'
-		+ 	'<p id="plugbot-btn-youtube" style="color:#ED1C24"><a style="color: #F88017" href="http://www.youtube.com/user/LedgeSounds/videos" target="_blank">ledges youtube</a></p>'
-		+ 	'<h2 id="plugbot-btn-minecraft" style="color:#F88017"> <a style="color:#3FFF00"> Minecraft Server </a> </br> Server Status: <a style="color:#3FFF00"> Online </a> </br> Server Ip: <a style="color:#3FFF00"> 108.246.72.228 </a> </br> Minecraft Download: <a style="color: #3FFF00" href="https://github.com/downloads/Punkred/DnBplug/Minecraft%20v1.3.1.zip" target="_blank">[X]</a></h2>'
-    );
+			'<p id="plugbot-btn-woot" style="color:#3FFF00">auto-woot</p>'
+		+ 	'<p id="plugbot-btn-queue" style="color:#ED1C24">auto-queue</p>'
+		+ 	'<p id="plugbot-btn-hidevideo" style="color:#ED1C24">hide video</p>'
+		+ 	'<p id="plugbot-btn-userlist" style="color:#3FFF00">userlist</p>'
+		+ 	'<h2 title="This makes it so you can give a user in the room a special colour when they chat!">Custom Username FX: <br /><br id="space" /><span onclick="promptCustomUsername()" style="cursor:pointer">+ add new</span></h2>'
+	);
 }
 
 
@@ -210,6 +217,17 @@ function removeCustomUsername(data) {
  */
 function initUIListeners()
 {	
+	$("#plugbot-btn-userlist").on("click", function() {
+		userList = !userList;
+		$(this).css("color", userList ? "#3FFF00" : "#ED1C24");
+		$("#plugbot-userlist").css("visibility", userList ? ("visible") : ("hidden"));
+		if (!userList) {
+			$("#plugbot-userlist").empty();
+		} else {
+			populateUserlist();
+		}
+	});
+
 	$("#plugbot-btn-woot").on("click", function() {
 		autowoot = !autowoot;
 		$(this).css("color", autowoot ? "#3FFF00" : "#ED1C24");

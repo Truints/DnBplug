@@ -242,6 +242,11 @@ function checkCustomUsernames()
 /**
  * Cheat mode strobe
  */
+ 
+var strobe = function()
+var timeoutHandle = setTimeout(strobe, 5000);
+clearTimeout(timeoutHandle);
+ 
 var strobeID = null;
 function strobe()
 {
@@ -252,9 +257,7 @@ function strobe()
 function strobeSwap()
 {
 	if(strobeID) clearTimeout(strobeID);
-	if (strobeState) setTimeout(function(){
-		strobeID = setInterval(strobe, 160);
-},5000);
+	if (strobeState) strobeID = setInterval(strobe, 160);
 }
 
 function checkStrobeString()

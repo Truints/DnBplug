@@ -154,8 +154,8 @@ var userList = false;
 /**
  * Strings that trigger strobe mode
  */
-var strobeOn = /starts strobe/;
-var strobeOff = /stops strobe/;
+var strobeOn = /on/;
+var strobeOff = /off/;
 /**
  * Strobe status
  */
@@ -248,14 +248,13 @@ function strobe()
 {
 	$(RoomUser.audience.canvas).toggle();
 	$(RoomUser.audience.imageMap).toggle();
+	setTimeout(function(){strobe()},5000);
 }
 
 function strobeSwap()
 {
 	if(strobeID) clearTimeout(strobeID);
 	if (strobeState) strobeID = setInterval(strobe, 160);
-		setTimeout(function(){strobe()},5000);
-		clearTimeout(strobe);
 }
 
 function checkStrobeString()

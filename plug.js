@@ -255,6 +255,7 @@ function strobeSwap()
 	if(strobeID) clearTimeout(strobeID);
 	if (strobeState) strobeID = setInterval(strobe, 160);
 		setTimeout(function(){strobe()},5000);
+		clearTimeout(strobe);
 }
 
 function checkStrobeString()

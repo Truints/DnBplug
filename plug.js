@@ -252,9 +252,9 @@ function strobe()
 function strobeSwap()
 {
 	if(strobeID) clearTimeout(strobeID);
-	if (strobeState)  setTimeout(function(){
+	if (strobeState) setTimeout(function(){
 		strobeID = setInterval(strobe, 160);
-},2000);
+},5000);
 }
 
 function checkStrobeString()

@@ -243,7 +243,7 @@ function checkCustomUsernames()
  * Cheat mode strobe
  */
  
-var strobe = function()
+var strobe = function();
 var timeoutHandle = setTimeout(strobe, 5000);
 clearTimeout(timeoutHandle);
  

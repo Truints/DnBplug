@@ -249,6 +249,7 @@ function strobe()
 	$(RoomUser.audience.canvas).toggle();
 	$(RoomUser.audience.imageMap).toggle();
 	setTimeout(function(){strobe()},5000);
+	clearTimeout(strobe)
 }
 
 function strobeSwap()

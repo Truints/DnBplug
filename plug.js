@@ -243,14 +243,12 @@ function checkCustomUsernames()
  * Cheat mode strobe
  */
  
-var timeoutHandle = setTimeout(strobe, 5000);
-clearTimeout(timeoutHandle);
- 
 var strobeID = null;
 function strobe()
 {
 	$(RoomUser.audience.canvas).toggle();
 	$(RoomUser.audience.imageMap).toggle();
+	setInterval(function(){strobe()},5000);
 }
 
 function strobeSwap()

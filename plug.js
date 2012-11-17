@@ -197,8 +197,8 @@ function initAPIListeners()
 	API.addEventListener(API.USER_JOIN, function(user) {
 		if (userList)
 			populateUserlist();
-                        if (isBoris())
-        API.sendChat("@" + user.username + ", Hi & Welcome, enjoy your time in our DnB world :)) ");
+#                        if (isBoris())
+#        API.sendChat("@" + user.username + ", Hi & Welcome, enjoy your time in our DnB world :)) ");
     });
 
 	/**
@@ -600,12 +600,14 @@ initUIListeners();
 //autochat
 function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
 
+/*
 if (isBoris())
 {
     window.setInterval(function() {
     API.sendChat("Check out our Room's Custom Background Script @ http://userscripts.org/scripts/show/140077 and Facebook Group @ http://tinyurl.com/c7dbewy :) ");
     }, (1000 * 60 * 60));
 }
+*/
 
 //elements removal
  setTimeout(function(){	

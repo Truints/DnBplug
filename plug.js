@@ -197,8 +197,10 @@ function initAPIListeners()
 	API.addEventListener(API.USER_JOIN, function(user) {
 		if (userList)
 			populateUserlist();
-#                        if (isBoris())
-#        API.sendChat("@" + user.username + ", Hi & Welcome, enjoy your time in our DnB world :)) ");
+/*
+                if (isBoris())
+        API.sendChat("@" + user.username + ", Hi & Welcome, enjoy your time in our DnB world :)) ");
+*/
     });
 
 	/**

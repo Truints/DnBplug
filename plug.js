@@ -197,11 +197,11 @@ function initAPIListeners()
 	API.addEventListener(API.USER_JOIN, function(user) {
 		if (userList)
 			populateUserlist();
+        });
 /*
                 if (isBoris())
         API.sendChat("@" + user.username + ", Hi & Welcome, enjoy your time in our DnB world :)) ");
 */
-    });
 
 	/**
 	 * Called upon a user exiting the room. 
@@ -600,9 +600,9 @@ displayUI();
 initUIListeners();
 
 //autochat
+/*
 function isBoris() { return API.getSelf().username == "d(-_-)b Tom"; }
 
-/*
 if (isBoris())
 {
     window.setInterval(function() {

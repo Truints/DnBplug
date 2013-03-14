@@ -38,7 +38,7 @@ addGlobalStyle('#room-wheel {background-image: max-height:0px;max-width:0px;}');
 //
 //addGlobalStyle('#user-fans {background-image: url("");maxheight:25px;max-width:25px;}');
 //
-addGlobalStyle('html{background: url("http://cloud.github.com/downloads/Punkred/DnBplug/roombackground.png") no-repeat scroll center top #000000;');
+addGlobalStyle('html{background: url("http://i1205.photobucket.com/albums/bb438/truints/walpaper_zps190884f5.png") no-repeat scroll center top #000000;');
 //
 //addGlobalStyle('#button-dj-play.button-dj {background-image: url("")!important;}');
 //
